@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 mt-5">
+      <form action="/tasks/create/" method="POST" class="card card-body">
+        <h1 class="text-center">Create Task</h1>
+        {{error}}
+        {% csrf_token %}
+
+        <div>
+          <label for="title">Title</label>
+          <input type="text" name="title" placeholder="Title" class="form-control">
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <textarea type="text" name="description" placeholder="Description" class="form-control"></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="important">Important</label>
+          <input type="checkbox" name="important" placeholder="important" class="form-check-input"></>
+        </div>
+
+        <button class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
